@@ -1,0 +1,44 @@
+import java.util.*;
+class Dudeney
+{
+    int num;
+    Dudeney()
+    {
+        num=0;
+    }
+    void input()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Input number to be checked:");
+        num=sc.nextInt();
+    }
+    int sumDigits(int x)
+    {
+        if(x==0)
+        {
+            return 0;
+        }
+        else
+        {
+            return x%10+sumDigits(x/10);
+        }
+    }
+    void isDude()
+    {
+        int cube=(int) Math.pow(sumDigits(num),3);
+        if(cube==num)
+        {
+            System.out.println("It is a Dudeney.");            
+        }
+        else
+        {
+            System.out.println("It is not a Dudeney.");
+        }
+    }
+    public static void main(String[] args)
+    {
+        Dudeney obj=new Dudeney();
+        obj.input();
+        obj.isDude();
+    }
+}
