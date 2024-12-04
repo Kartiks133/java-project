@@ -1,0 +1,28 @@
+import java.util.*;
+class RemoveDuplicates 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter a string: ");
+        String s=sc.next().toUpperCase();
+        String res = remDup(s);
+        System.out.println("New word: " + res);
+    }
+    static String remDup(String s) 
+    {
+        StringBuilder result = new StringBuilder();
+        boolean[] seen = new boolean[256]; // Assuming ASCII characters
+        for (int i = 0; i < s.length(); i++) 
+        {
+            char currentChar = s.charAt(i);
+            // Check if the character is already seen
+            if (!seen[currentChar]) 
+            {
+                result.append(currentChar);
+                seen[currentChar] = true;
+            }
+        }
+        return result.toString();
+    }
+}
