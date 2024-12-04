@@ -1,0 +1,100 @@
+import java.util.*;
+class date
+{
+    String date;
+    int daynumber,da,x,N,year,index;
+    String month[]={"","JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"};
+    void input()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter daynumber");
+        daynumber =sc.nextInt();
+        System.out.println("Enter N");
+        N=sc.nextInt();
+        System.out.println("Enter year");
+        year=sc.nextInt();
+        
+    }
+    int dcalc(int x)
+    {
+        if(x<=31)
+        {
+           index=1;
+           da=x;
+        }
+        else if(x>31 && x<=60)
+        {
+            index=2;
+            da=x-31;
+        }
+        else if(x>60&& x<=91)
+        {
+            index=3;
+            da=x-60;
+        }
+        else if(x>91 && x<=121)
+        {
+            index=4;
+            da=x-91;
+        }
+        else if(x>121&& x<=152)
+        {
+            index=5;
+            da=x-121;
+        }
+        else if(x>152&& x<=182)
+        {
+            index=6;
+            da=x-152;            
+        }
+        else if(x>182 && x<=213)
+        {
+            index=7;
+            da=x-182;
+        }
+        else if(x>213 && x<=243)
+        {
+            index=8;
+            da=x-213;
+        }
+        else if(x>243&& x<=274)
+        {
+            index=9;
+            da=x-243;
+        }
+        else if(x>274&&x<=305)
+        {
+            index=10;
+            da=x-274;
+        }
+        else if(x>305 && x<=336)
+        {
+            index=11;
+            da=x-305;            
+        }
+        else if(x>336 && x<=366)
+        {
+            index=12;
+            da=x-336;
+        }
+        else
+        {
+            year++;
+            x=x-366;
+        }        
+        return dcalc(x);
+    }
+    void display()
+    {
+        String d1=month[index]+dcalc(daynumber)+", "+year;
+        String d2=month[index]+dcalc(daynumber+N)+", "+year;
+        System.out.println(d1);
+        System.out.println(d2);
+    }
+    public static void main(String args[])
+    {
+        date obj=new date();
+        obj.input();
+        obj.display();
+    }
+}
