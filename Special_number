@@ -1,0 +1,61 @@
+import java.util.*;
+public class Two
+{
+    static int n,numb;
+    boolean ch;
+    Two()
+    {
+        n=0;
+        numb=0;
+        ch=false;
+    }
+    void acc()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number");
+        numb=sc.nextInt();
+    }
+    static int fact(int n)
+    {
+    if(n==1)
+    {
+        return 1;
+    }
+    else if(n>1)
+    {
+        return n* fact(n-1);
+    }
+    else
+    {
+        return 0;
+    }
+    }
+    static int sumoffact(int num)
+    {
+        if(num==0)
+        {
+            return 0;
+        }
+        else
+        {
+            return fact(num%10) + sumoffact(num/10);
+        }
+    }
+    static boolean check(int num) 
+    {
+        return num == sumoffact(num);
+    }
+    public static void main(String[]args)
+    {
+        Two ob = new Two();
+        ob.acc();
+        ob.ch=ob.check(numb);
+        if(ob.ch)
+        {
+            System.out.println("The number is special number");
+        }
+        else
+        
+            System.out.println("The number is not a special number");
+    }
+}
