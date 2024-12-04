@@ -1,0 +1,33 @@
+import java.util.*;
+class PigLatinConverter 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a word: ");
+        String word = sc.next().toUpperCase();
+        String pigLatin = convertToPigLatin(word);
+        System.out.println("Pig Latin: " + pigLatin);
+    }
+    static String convertToPigLatin(String word) 
+    {
+        char[] ch = {'A', 'E', 'I', 'O', 'U'};
+        int firstVowelIndex = -1;
+        for (char vowel : ch) 
+        {
+            int index = word.indexOf(vowel);
+            if (index != -1 && (firstVowelIndex == -1 || index < firstVowelIndex)) 
+            {
+                firstVowelIndex = index;    
+            }
+        }
+        if (firstVowelIndex == -1) 
+        {
+            return word + "AY";
+        } else 
+        {            
+            String pigLatin = word.substring(firstVowelIndex) + word.substring(0, firstVowelIndex) + "AY";
+            return pigLatin;
+        }
+    }
+}
