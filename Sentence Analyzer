@@ -1,0 +1,37 @@
+import java.util.*;
+class SentenceAnalyzer 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a paragraph containing two sentences:");
+        String paragraph = sc.nextLine().toUpperCase();
+        String[] sentences = paragraph.split("[.?!]");
+        if (sentences.length != 2) 
+        {
+            System.out.println("Invalid paragraph. Please enter exactly two sentences.");
+        } else 
+        {
+            analyzeSentences(sentences[0], sentences[1]);
+        }
+    }
+    static void analyzeSentences(String s1, String s2) 
+    {
+        String[] w1 = s1.trim().split("\\s+");
+        String[] w2 = s2.trim().split("\\s+");
+        System.out.println("SENTENCE 1: " + w1.length + " words");
+        System.out.println("SENTENCE 2: " + w2.length + " words");
+        System.out.print("COMMON WORDS: ");
+        for (String word1 : w1) 
+        {
+            for (String word2 : w2) 
+            {
+                if (word1.equals(word2)) 
+                {
+                    System.out.print(word1 + " ");
+                    break;
+                }
+            }
+        }
+    }
+}
