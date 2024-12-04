@@ -1,0 +1,66 @@
+import java.util.*;
+class frequency
+{
+    int arr[][];
+    int m,n,odd,even;
+    void input()
+    {
+        Scanner a=new Scanner(System.in);
+        System.out.println("Input number of rows:");
+        m=a.nextInt();
+        System.out.println("Input number of columns:");
+        n=a.nextInt();
+        arr=new int[m][n];
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                arr[i][j]=a.nextInt();
+            }
+        }
+    }       
+    void show()
+    {
+        
+        System.out.println("Array is:");
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+    void freq()
+    {
+        
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(arr[i][j]%2==0)
+                {
+                    even+=1;
+                }
+                else
+                {
+                    odd+=1;
+                }
+            }
+        }
+    }
+    void display()
+    {
+        input();
+        show();
+        freq();
+        System.out.println("Even numbers are: "+even);
+        System.out.println("Odd numbers are: "+odd);
+    }
+    public static void main()
+    {
+        frequency obj=new  frequency();
+        obj.display();
+    }
+}
