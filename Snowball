@@ -1,0 +1,48 @@
+import java.util.*;
+class snowball
+{
+    public static void main()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a string.");
+        String s=sc.nextLine();
+        s=" "+s;
+        int l=s.length();
+        char ch=s.charAt(l-1);
+        char a='.';
+        char b='?';
+        if(ch==a || ch==b)
+        {
+            String sa[]=s.split(" ");
+            int i;
+            int f=0,k=0;
+            sa[sa.length-1]=sa[sa.length-1].substring(0,sa[sa.length-1].length()-1);
+            for(i=0;i<sa.length;i++)
+            {
+                for(int j=0;j<sa.length-1;j++)
+                {
+                    if(sa[j].length()>sa[j+1].length())
+                    {
+                        f++;
+                    }
+                }
+            }
+            if(f==0)
+            {
+                k=1;
+            }
+            if(k==1)
+            {
+                System.out.println("It is a snowball.");
+            }
+            else
+            {
+                System.out.println("It is not a snowball.");
+            }
+        }
+        else
+        {
+            System.out.println("Invalid terminating character.");
+        }
+    }
+}
